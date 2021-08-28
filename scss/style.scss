@@ -1,0 +1,146 @@
+@import "variables";
+@import "mixins";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-text: #{$dark-grayish-blue};
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background-color: $light-grayish-blue;
+  display: grid;
+  place-items: center;
+  padding: 2em;
+}
+
+main {
+  width: 85%;
+  display: grid;
+  gap: 2em;
+
+  @include for-mobile {
+    width: 100%;
+  }
+}
+
+.card {
+  padding: 2em;
+  border-radius: 0.625em;
+  background-color: $white;
+  color: var(--color-text);
+}
+
+.card-1 {
+  grid-row: 1;
+  grid-column: 1 / span 2;
+  background: $violet url(../images/bg-pattern-quotation.svg) no-repeat 85% 0%;
+  --color-text: #{$white};
+
+  @include for-mobile {
+    grid-row: auto;
+    grid-column: auto;
+  }
+}
+
+.card-2 {
+  grid-row: 1;
+  grid-column: 3 / span 1;
+  background-color: $dark-grayish-blue;
+  --color-text: #{$white};
+  @include for-mobile {
+    grid-row: auto;
+    grid-column: auto;
+  }
+}
+
+.card-3 {
+  grid-row: 1 / span 2;
+  grid-column: 4 / span 1;
+  @include for-mobile {
+    grid-row: 5;
+    grid-column: auto;
+  }
+}
+
+.card-4 {
+  grid-row: 2;
+  grid-column: 1 / span 1;
+  @include for-mobile {
+    grid-row: auto;
+    grid-column: auto;
+  }
+}
+
+.card-5 {
+  grid-row: 2;
+  grid-column: 2 / span 2;
+  background-color: $blackish-blue;
+  --color-text: #{$white};
+  @include for-mobile {
+    grid-row: auto;
+    grid-column: auto;
+  }
+}
+
+.user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1em;
+
+  &-name {
+    @include for-mobile {
+      font-size: 0.875rem;
+      margin-bottom: 0.1em;
+    }
+  }
+
+  &-img {
+    width: 2.5em;
+    border: 2px solid var(--color-text);
+    border-radius: 50%;
+
+    @include for-mobile {
+      width: 2em;
+    }
+  }
+
+  &-status {
+    opacity: 0.5;
+    font-weight: lighter;
+    font-size: 0.875rem;
+
+    @include for-mobile {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+.title {
+  font-size: 1.4rem;
+  margin-bottom: 1em;
+
+  @include for-mobile {
+    font-size: 1.2rem;
+  }
+}
+
+.desc {
+  font-size: 0.9rem;
+  opacity: 0.7;
+
+  @include for-mobile {
+    font-size: 0.8rem;
+  }
+}
